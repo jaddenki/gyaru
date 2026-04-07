@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.screen {
+    display: none;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.screen.active {
+    display: block;
+}

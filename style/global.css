@@ -10,9 +10,8 @@
     /* Primary reading size — matches dialogue speech bubbles (newsvan). */
     --font-ui: 15px;
     --font-ui-line: 1.45;
-    /* Dim + blur when a modal/dialog opens: slight black darken over a pink wash */
+    /* Dim + blur when a modal/dialog opens */
     --focus-backdrop-fill: rgba(0, 0, 0, 0.56);
-    --focus-backdrop-pink-veil: rgba(236, 72, 153, 0.09);
     --focus-backdrop-blur: blur(8px);
     /* Popups / modals / dialogue surfaces — light pink, dark text */
     --surface-popup: rgba(252, 231, 243, 0.98);
@@ -27,13 +26,9 @@
 #modal-overlay,
 #magazine-overlay,
 .shibuya109-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    background-image: linear-gradient(
-        var(--focus-backdrop-pink-veil),
-        var(--focus-backdrop-pink-veil)
-    );
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: var(--focus-backdrop-fill);
+    backdrop-filter: var(--focus-backdrop-blur);
+    -webkit-backdrop-filter: var(--focus-backdrop-blur);
 }
 
 html {
@@ -645,13 +640,9 @@ input[type="submit"] {
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.52);
-    background-image: linear-gradient(
-        var(--focus-backdrop-pink-veil),
-        var(--focus-backdrop-pink-veil)
-    );
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: var(--focus-backdrop-fill);
+    backdrop-filter: var(--focus-backdrop-blur);
+    -webkit-backdrop-filter: var(--focus-backdrop-blur);
 }
 
 .dialogue-intro {

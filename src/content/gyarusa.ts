@@ -6,7 +6,7 @@ import type { ModalContentEntry } from './modals'
 export const zone: ZoneConfig = {
   id: 'zone-gyarusa',
   modal: 'modal-gyarusa',
-  label: 'Gyarusa Hangout',
+  label: 'Gyarusa Hangout (References)',
   interaction: 'modal',
   rect: { top: '63.5%', left: '63.1%', width: '3.5%', height: '5%' },
 }

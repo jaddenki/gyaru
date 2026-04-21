@@ -8,7 +8,7 @@ import type { ModalContentEntry } from './modals'
 
 export const zone: ZoneConfig = {
   id: 'zone-magazine',
-  label: 'Magazine Rack',
+  label: 'Magazine Rack (Intro)',
   interaction: 'magazine',
   rect: { top: '69.6%', left: '87.5%', width: '5%', height: '7%' },
 }

@@ -69,7 +69,7 @@ export function preloadShibuya109Images(): void {
 export const zone: ZoneConfig = {
   id: 'zone-109',
   modal: 'modal-109',
-  label: 'Shibuya 109',
+  label: 'Shibuya 109 (Substyles)',
   interaction: 'modal',
   rect: { top: '3.3%', left: '73.2%', width: '14.8%', height: '48.2%' },
 }

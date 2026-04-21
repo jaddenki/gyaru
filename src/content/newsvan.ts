@@ -14,7 +14,7 @@ export const zone: ZoneConfig = {
   id: 'zone-interview',
   label: 'News Van',
   interaction: 'dialogue',
-  rect: { top: '80.2%', left: '86.5%', width: '8.9%', height: '15.4%' },
+  rect: { top: '80.2%', left: '83%', width: '8.9%', height: '15.4%' },
 }
 
 export const characters: DialogueCharacter[] = [

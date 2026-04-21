@@ -115,12 +115,17 @@ input[type="submit"] {
     inset: 0;
     width: 100%;
     height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(12px, 3vmin, 28px);
+    box-sizing: border-box;
 }
 
 #modal-panel {
     background: var(--surface-popup);
     color: var(--surface-popup-body);
-    margin: 10% auto;
+    margin: 0;
+    width: 100%;
     padding: 20px;
     max-width: min(640px, 92vw);
     max-height: min(85vh, 900px);
@@ -576,10 +581,8 @@ input[type="submit"] {
     pointer-events: auto;
 }
 
-/* Matches map-area layout for bubbles; clicks pass through padding to backdrop */
-#dialogue-layer > .dialogue-scene-rail {
-    pointer-events: none;
-}
+/* Do not set pointer-events: none on .dialogue-scene-rail: clicks would fall through to
+   #dialogue-backdrop (also pointer-events: auto) and skip #btn-dialogue-next. */
 
 .dialogue-scene-rail {
     position: absolute;

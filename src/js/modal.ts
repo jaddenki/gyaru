@@ -54,7 +54,7 @@ export function openModal(id: string): void {
     timeline.appendChild(ul);
   }
 
-  overlay.style.display = "block";
+  overlay.style.display = "flex";
 }
 
 export function closeModal(): void {

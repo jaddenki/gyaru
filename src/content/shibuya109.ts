@@ -15,7 +15,7 @@ export interface GyaruSubstyle {
 export const GYARU_SUBSTYLES: GyaruSubstyle[] = [
   {
     id: 'kogal',
-    nameEn: 'kogal',
+    nameEn: 'kogyaru',
     nameJa: 'コギャル',
     teaser: 'Uniform, loose socks.',
     image: '/assets/ui/shibuya109/kogyaru.png',

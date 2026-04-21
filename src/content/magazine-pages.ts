@@ -8,6 +8,7 @@ export const pages: string[] = [
   '/assets/ui/magazine/2.png',
   '/assets/ui/magazine/3.png',
   '/assets/ui/magazine/4.png',
+  '/assets/ui/magazine/5.png',
 ]
 
 /** All raster assets for the magazine overlay (cover + spreads) — use for preloading */

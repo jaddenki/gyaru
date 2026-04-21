@@ -7,7 +7,7 @@ export type { ModalContentEntry } from "./modals";
 export {
   interviewDialogue,
   dialogueCharacters,
-  bubblePositions,
+  speakerPortraits,
 } from "./interview";
 export type { DialogueLine, DialogueCharacter } from "./interview";
 

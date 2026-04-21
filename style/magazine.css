@@ -1,0 +1,132 @@
+/* magazine.css — egg magazine flip-book overlay */
+
+#magazine-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10001;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#magazine-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 92vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#btn-magazine-close {
+    position: absolute;
+    top: -36px;
+    right: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: #fce7f3;
+    font-size: var(--font-ui);
+    cursor: pointer;
+    opacity: 0.7;
+    padding: 4px 8px;
+    line-height: 1;
+    transition: opacity 0.15s ease;
+}
+
+#btn-magazine-close:hover {
+    opacity: 1;
+}
+
+/* ── Cover ──────────────────────────────────────────────────────────────────── */
+
+#magazine-cover-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+}
+
+#magazine-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    background: rgba(252, 231, 243, 0.98);
+    padding: 0;
+    border-radius: 0;
+    border: 1px solid rgba(190, 24, 93, 0.38);
+    box-shadow:
+        0 8px 36px rgba(190, 24, 93, 0.28),
+        0 4px 24px rgba(244, 114, 182, 0.18);
+}
+
+/* Raster spreads & cover: quality-preserving scale + no stretch (matches export aspect ratios) */
+#magazine-cover-img,
+#magazine-spread-img {
+    display: block;
+    max-height: 85vh;
+    max-width: min(90vw, 1400px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    /* Prefer smooth high-quality downscaling where supported (falls back to auto) */
+    image-rendering: auto;
+    image-rendering: high-quality;
+    /* Own compositor layer — reduces muddy scaling from subpixel sizing in some Chromium builds */
+    transform: translateZ(0);
+}
+
+#magazine-cover p {
+    font-family: inherit;
+    font-style: italic;
+    font-size: var(--font-ui);
+    color: #4a044e;
+    text-align: center;
+    max-width: min(90vw, 520px);
+    line-height: var(--font-ui-line);
+    margin: 0;
+    padding: 16px 20px 20px;
+    flex-shrink: 0;
+}
+
+/* ── Spread ─────────────────────────────────────────────────────────────────── */
+
+#magazine-spread {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#magazine-spread-img {
+    box-shadow:
+        2px 4px 20px rgba(190, 24, 93, 0.22),
+        0 2px 14px rgba(244, 114, 182, 0.15);
+    aspect-ratio: 1400 / 990;
+}
+
+/* ── Arrows ─────────────────────────────────────────────────────────────────── */
+
+.magazine-arrow {
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: #fbcfe8;
+    font-size: var(--font-ui);
+    cursor: pointer;
+    padding: 8px 14px;
+    opacity: 0.6;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.magazine-arrow:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}

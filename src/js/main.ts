@@ -1,9 +1,12 @@
 // main.ts, screen transitions, app init, event delegation
 
+import "../../style/tailwind.css";
 import { initMap } from "./map";
 import { initModal } from "./modal";
 import { initDialogue } from "./dialogue";
+import { initMagazine } from "./magazine-renderer";
 import { screenCopy } from "../content/data";
+import { preloadShibuya109Images } from "../content/shibuya109";
 
 export type Screen = "title" | "onboard" | "map";
 
@@ -26,13 +29,6 @@ export function showScreen(screen: Screen): void {
   document.getElementById(`screen-${screen}`)?.classList.add("active");
 }
 
-export function updateBadge(): void {
-  const badge = document.getElementById("player-badge");
-  if (badge) {
-    badge.textContent = `${playerState.name} — ${playerState.substyle}`;
-  }
-}
-
 function populateScreenCopy(): void {
   // title
   const tagline = document.getElementById("title-tagline");
@@ -42,9 +38,7 @@ function populateScreenCopy(): void {
 
   // map
   const hint = document.getElementById("map-hint");
-  const badge = document.getElementById("player-badge");
   if (hint) hint.textContent = screenCopy.map.hintText;
-  if (badge) badge.textContent = screenCopy.map.defaultBadge;
 
   // modal
   const closeBtn = document.getElementById("btn-modal-close");
@@ -53,13 +47,17 @@ function populateScreenCopy(): void {
   // dialogue
   const nextBtn = document.getElementById("btn-dialogue-next");
   if (nextBtn) nextBtn.textContent = screenCopy.dialogue.nextButton;
+  const introBody = document.getElementById("dialogue-intro-body");
+  if (introBody) introBody.textContent = screenCopy.dialogue.introBody;
 }
 
 export function initApp(): void {
   populateScreenCopy();
+  preloadShibuya109Images();
   initMap();
   initModal();
   initDialogue();
+  initMagazine();
   showScreen("map");
 }
 

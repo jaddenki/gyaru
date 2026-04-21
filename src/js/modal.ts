@@ -15,7 +15,21 @@ export function openModal(id: string): void {
 
   title.textContent = content.title;
   subtitle.textContent = content.subtitle;
-  body.textContent = content.body;
+  subtitle.hidden = !content.subtitle.trim();
+
+  body.innerHTML = "";
+  if (content.worksCited?.length) {
+    const ol = document.createElement("ol");
+    ol.className = "modal-works-cited";
+    for (const entry of content.worksCited) {
+      const li = document.createElement("li");
+      li.textContent = entry;
+      ol.appendChild(li);
+    }
+    body.appendChild(ol);
+  } else {
+    body.textContent = content.body;
+  }
 
   // tags
   tags.innerHTML = "";
@@ -23,10 +37,7 @@ export function openModal(id: string): void {
     for (const tag of content.tags) {
       const span = document.createElement("span");
       span.textContent = tag;
-      span.style.border = "1px solid #999";
-      span.style.padding = "2px 6px";
-      span.style.marginRight = "4px";
-      span.style.display = "inline-block";
+      span.className = "modal-tag";
       tags.appendChild(span);
     }
   }

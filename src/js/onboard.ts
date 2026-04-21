@@ -1,6 +1,6 @@
 // onboard.ts, character creation state + logic (3-step flow)
 
-import { playerState, showScreen, updateBadge } from "./main";
+import { playerState, showScreen } from "./main";
 import { substyles } from "../content/data";
 
 let currentStep = 1;
@@ -76,7 +76,6 @@ export function initOnboard(): void {
       "name-input",
     ) as HTMLInputElement | null;
     playerState.name = input?.value || "anon";
-    updateBadge();
     showScreen("map");
   });
 }

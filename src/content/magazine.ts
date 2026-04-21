@@ -1,14 +1,16 @@
 // magazine rack — the gyaru bible
 
 import type { ZoneConfig } from './zones'
+
+/** Shown under the cover image in the magazine pickup overlay */
+export const magazineCoverCaption = 'you picked up an egg magazine'
 import type { ModalContentEntry } from './modals'
 
 export const zone: ZoneConfig = {
   id: 'zone-magazine',
-  modal: 'modal-magazine',
   label: 'Magazine Rack',
-  interaction: 'modal',
-  rect: { top: '10%', left: '30%', width: '20%', height: '30%' },
+  interaction: 'magazine',
+  rect: { top: '69.6%', left: '87.5%', width: '5%', height: '7%' },
 }
 
 export const modal: ModalContentEntry = {

@@ -17,7 +17,7 @@ export const substyles: Substyle[] = [
 ]
 
 export const baseCharacters = [
-  { id: 'A', label: 'BASE A' },
-  { id: 'B', label: 'BASE B' },
-  { id: 'C', label: 'BASE C' },
+  { id: 'A', label: 'Base A' },
+  { id: 'B', label: 'Base B' },
+  { id: 'C', label: 'Base C' },
 ]

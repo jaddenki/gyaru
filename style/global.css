@@ -23,16 +23,17 @@
     --surface-popup-hover: rgba(251, 207, 232, 0.99);
 }
 
-/* Same dim + blur for every overlay (dialogue, modal, magazine, Shibuya 109). */
-#dialogue-backdrop.dialogue-backdrop,
+/* Dim + blur for modal / magazine / Shibuya (not #dialogue-backdrop — see dedicated rule below). */
 #modal-overlay,
 #magazine-overlay,
 .shibuya109-overlay {
-    background:
-        var(--focus-backdrop-fill),
-        var(--focus-backdrop-pink-veil);
-    backdrop-filter: var(--focus-backdrop-blur);
-    -webkit-backdrop-filter: var(--focus-backdrop-blur);
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(
+        var(--focus-backdrop-pink-veil),
+        var(--focus-backdrop-pink-veil)
+    );
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 html {
@@ -581,8 +582,8 @@ input[type="submit"] {
     pointer-events: auto;
 }
 
-/* Do not set pointer-events: none on .dialogue-scene-rail: clicks would fall through to
-   #dialogue-backdrop (also pointer-events: auto) and skip #btn-dialogue-next. */
+/* Do not set pointer-events: none on .dialogue-scene-rail without fixing stacking:
+   clicks could miss #btn-dialogue-next. #dialogue-backdrop uses pointer-events: none. */
 
 .dialogue-scene-rail {
     position: absolute;
@@ -643,7 +644,14 @@ input[type="submit"] {
     position: absolute;
     inset: 0;
     z-index: 0;
-    pointer-events: auto;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.52);
+    background-image: linear-gradient(
+        var(--focus-backdrop-pink-veil),
+        var(--focus-backdrop-pink-veil)
+    );
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .dialogue-intro {
@@ -731,12 +739,12 @@ input[type="submit"] {
     display: none;
 }
 
-#btn-dialogue-next {
-    position: absolute;
+#dialogue-layer #btn-dialogue-next {
+    position: fixed;
     left: 50%;
-    bottom: 4%;
+    bottom: max(16px, 4vw, env(safe-area-inset-bottom, 0px));
     transform: translateX(-50%);
-    z-index: 6;
+    z-index: 10;
     padding: 10px 28px;
     font-size: var(--font-ui);
     font-weight: 400;
@@ -750,11 +758,11 @@ input[type="submit"] {
     pointer-events: auto;
 }
 
-#btn-dialogue-next:hover {
+#dialogue-layer #btn-dialogue-next:hover {
     background: var(--surface-popup-hover);
 }
 
-#btn-dialogue-next:focus-visible {
+#dialogue-layer #btn-dialogue-next:focus-visible {
     outline: 2px solid #f39bff;
     outline-offset: 3px;
 }
